@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="shortcut icon" href="assets/img/favicon-32x32.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <header>
+        <div class="header__wrapper">
+            <div class="logo__container">
+                <a href="#">
+                    <img src="./assets/img/logo.svg" alt="Insure Logo">
+                </a>
+            </div>
+            <div class="menu__button">
+                <img src="./assets/img/icon-hamburger.svg" alt="open menu button">
+            </div>
+            <nav>
+                <ul class="menu">
+                    <li><a class="menu__links" href="#">How we work</a></li>
+                    <li><a class="menu__links" href="#">Blog</a></li>
+                    <li><a class="menu__links" href="#">Account</a></li>
+                    <li><a class="link__button" href="#">View plans</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero__content">
+                <h1 class="hero__title">Humanizing <span>your insurance.</span></h1>
+                <p class="hero__text">
+                    Get your life insurance coverage easier and faster. We blend our expertise and technology to help
+                    you
+                    find the plan that’s right for you. Ensure you and your loved ones are protected.
+                </p>
+                <a href="#" class="button">View plans</a>
+            </div>
+            <figure class="hero__img">
+            </figure>
+            <div class="background__left"></div>
+            <div class="background__right"></div>
+        </section>
+
+        <div class="container">
+            <h2 class="services__title">We’re different</h2>
+
+            <section class="card__container">
+                <div class="card">
+                    <img class="card__icon" src="./assets/img/icon-snappy-process.svg" alt="A lightning icon">
+                    <h2 class="card__title">Snappy Process</h2>
+                    <p class="card__text">Our application process can be completed in minutes, not hours. Don’t get
+                        stuck filling in tedious forms.</p>
+                </div>
+                <div class="card">
+                    <img class="card__icon" src="./assets/img/icon-affordable-prices.svg" alt="A dollar icon">
+                    <h2 class="card__title">Affordable Prices</h2>
+                    <p class="card__text"> We don’t want you worrying about high monthly costs. Our prices may be low,
+                        but we still offer the best coverage possible.</p>
+                </div>
+                <div class="card">
+                    <img class="card__icon" src="./assets/img/icon-people-first.svg" alt="A person icon">
+                    <h2 class="card__title">People First</h2>
+                    <p class="card__text"> Our plans aren’t full of conditions and clauses to prevent payouts. We make
+                        sure you’re covered when you need it.</p>
+                </div>
+            </section>
+
+        </div>
+
+        <section class="about">
+            <figure class="about__background"></figure>
+            <h2 class="about__title">Find out more about how we work</h2>
+            <a href="#" class="button">How we work</a>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer__header">
+            <a href="#">
+                <img src="./assets/img/logo.svg" alt="Logo">
+            </a>
+            <div class="social">
+                <a href="#">
+                    <img src="./assets/img/icon-facebook.svg" alt="Facebook icon">
+                </a>
+                <a href="#">
+                    <img src="./assets/img/icon-twitter.svg" alt="Twitter icon">
+                </a>
+                <a href="#">
+                    <img src="./assets/img/icon-pinterest.svg" alt="Pinterest icon">
+                </a>
+                <a href="#">
+                    <img src="./assets/img/icon-instagram.svg" alt="Instagram icon">
+                </a>
+            </div>
+        </div>
+        <div class="footer__body">
+            <ul class="list">
+                <li class="item"><a href="#">Our company</a></li>
+                <li class="item"><a href="#">How we work</a></li>
+                <li class="item"><a href="#">Why insure?</a></li>
+                <li class="item"><a href="#">View plans</a></li>
+                <li class="item"><a href="#">Reviews</a></li>
+            </ul>
+            <ul class="list">
+                <li class="item"><a href="#">Help me</a></li>
+                <li class="item"><a href="#">FAQ</a></li>
+                <li class="item"><a href="#">Terms of use</a></li>
+                <li class="item"><a href="#">Privacy policy</a></li>
+                <li class="item"><a href="#">Cookies</a></li>
+            </ul>
+            <ul class="list">
+                <li class="item"><a href="#">Contact</a></li>
+                <li class="item"><a href="#">Sales</a></li>
+                <li class="item"><a href="#">Support</a></li>
+                <li class="item"><a href="#">Live chat</a></li>
+            </ul>
+            <ul class="list">
+                <li class="item"><a href="#">Others</a></li>
+                <li class="item"><a href="#">Careers</a></li>
+                <li class="item"><a href="#">Press</a></li>
+                <li class="item"><a href="#">Licenses</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // Open Menu
+        const menuButton = document.querySelector(".menu__button");
+
+        menuButton.addEventListener("click", function (e) {
+            if (this.classList.contains("open")) {
+                this.classList.remove("open")
+                this.firstElementChild.src = "./assets/img/icon-hamburger.svg"
+            } else {
+                this.classList.add("open")
+                this.firstElementChild.src = "./assets/img/icon-close.svg"
+            }
+        })
+
+        // Scroll navbar
+        const hero = document.querySelector(".hero")
+        const header = document.querySelector("header")
+
+        console.log(header)
+
+        const ioOptions = {
+            root: null,
+            rootMargin: "-100px",
+            threshold: .1
+        }
+
+
+        const io = new IntersectionObserver((entries, observer) => {
+
+            console.log(entries)
+
+            if (!entries[0].isIntersecting) {
+                header.classList.add("scrolled")
+            } else {
+                header.classList.remove("scrolled")
+            }
+
+
+        }, ioOptions);
+
+        io.observe(hero)
+    </script>
+
+</body>
+
+</html>
