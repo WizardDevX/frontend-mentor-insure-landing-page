@@ -590,4 +590,9 @@ footer {
         width: 100%;
     }
 
+    .footer__body {
+        justify-items: start;
+        text-align: start;
+    }
+
 }
